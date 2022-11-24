@@ -7,6 +7,7 @@ provider:
 
 plugins:
     - ./vendor/bref/bref
+    - serverless-lift
 
 functions:
     api:
@@ -23,3 +24,10 @@ package:
     patterns:
         - '!node_modules/**'
         - '!tests/**'
+
+constructs:
+    website:
+        type: server-side-website
+        assets:
+            '/favicon.ico': assets/favicon.ico
+            # add here any file or directory that needs to be served from S3
